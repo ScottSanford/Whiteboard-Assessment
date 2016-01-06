@@ -1,0 +1,58 @@
+<h4>Your Progress {{ (currentIndex/totalNumQuestions) * 100 | number: 0}}%:</h4>
+<div class="row">
+	<div class="col-sm-12">
+		<uib-progressbar 
+			class="active prog" 
+			max="7" 
+			value="barValue" 
+			type="info">
+		</uib-progressbar>
+	</div>
+</div>
+
+    <!-- Initial Questions -->
+
+    <div class="text-center start-question" ng-show="showInitQs" ng-class="{ active : currentIndex == $index, inactive: currentIndex !== $index }" ng-repeat="q in initQs">
+      	{{q.text}}
+      	<div class="row text-center radio-group">
+      		<label class="col-sm-2 radio-label text-right">Very Hard</label>     
+            <div class="col-sm-8">
+            	<md-radio-group ng-model="data.group">
+            		<md-radio-button class="md-primary radio-inline"
+            			ng-repeat="r in radioBtns"
+                  aria-label="{{r.label}}"
+                  ng-value="r.value">
+                  {{r.label}}
+                </md-radio-button>
+              </md-radio-group>
+            </div>
+          <label class="col-sm-2 radio-label text-left">Very Easy</label>
+        </div>
+    </div>
+
+Current Index ==>>  {{currentIndex}}
+
+    <!-- Second Questions -->
+    <div class="text-center start-question" ng-show="showSecondQs" ng-class="{ active : secondIndex == $index, inactive: secondIndex !== $index }" ng-repeat="q in secondQuestions">
+        {{q.text}}
+  
+          <md-radio-group>
+            <md-radio-button value="Yes" class="md-primary"  ng-class="{'md-align-top-left': $index==1}">Yes</md-radio-button>
+            <md-radio-button value="No">No</md-radio-button>
+          </md-radio-group>
+
+    </div>
+
+	<div class="actionBtns">
+
+	  <button type="button" 
+      class="btn btn-primary btn-lg general-btn prevBtn" 
+      ng-show="showPrev" 
+      ng-click="prev()">Previous</button>
+
+	  <button type="button" 
+      class="btn btn-primary btn-lg general-btn"
+      ng-click="next()">Next</button>
+	  
+	</div>
+

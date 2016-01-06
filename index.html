@@ -1,0 +1,46 @@
+<html ng-app="assessmentApp">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Saleskit Problem Wheel</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/angular-bootstrap/ui-bootstrap-csp.css">
+    <link rel="stylesheet" href="common/css/animate.css">
+    <link rel="stylesheet" href="lib/angular-material/angular-material.css">
+    <link rel="stylesheet" href="common/css/styles.css">
+
+  </head>
+  <body>
+
+    <div class="container">
+        <div ng-view class="{{viewClass}}"></div>
+    </div>
+
+    <!-- scripts below -->
+    <!-- angular -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-aria/angular-aria.js"></script>
+    <script src="lib/angular-material/angular-material.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="lib/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- main script -->
+    <script src="app.js"></script>
+
+    <!-- Controllers -->
+    <script src="intro/intro.js"></script>
+    <script src="middle/middle.js"></script>
+    <script src="end/end.js"></script>
+
+    <!-- Services -->
+   <script src="middle/intro-questions.js"></script> 
+   <script src="middle/whiteboard.js"></script> 
+   <script src="middle/radioGroup.js"></script> 
+
+  </body>
+</html>

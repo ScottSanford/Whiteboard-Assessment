@@ -1,0 +1,103 @@
+.container {
+
+}
+
+.prog {
+  height:30px;
+  border-radius: 10px;
+  border: 4px solid #465568;
+}
+
+.progress-bar-info {
+  background-color:#465568;
+}
+
+.start-question {
+  margin-top:50px;
+  font-size: 2.5em;
+  font-weight: 300;
+}
+
+.general-btn {
+  margin-top:50px;
+  font-size:2em;
+  color:#fff;
+  background-color:#9fbe3c;
+  border:none;
+}
+
+.btn-primary:hover {
+  border-color: none;
+}
+
+.general-btn:active, 
+.general-btn:hover, 
+.general-btn:visited {
+  background-color:#8AA534;
+}
+
+.middle.ng-enter {
+  -webkit-animation: zoomIn .75s;
+  -moz-animation: zoomIn .75s;
+  -o-animation: zoomIn .75s;
+  animation: zoomIn .75s;
+}
+
+.active:first-of-type {
+  display: block;
+}
+
+.active {
+  display: block;
+  -webkit-animation: bounceInRight 2s;
+  -moz-animation: bounceInRight 2s;
+  -o-animation: bounceInRight 2s;
+  animation: bounceInRight 2s;
+}
+
+.inactive {
+  display: none;
+}
+
+.actionBtns {
+  position: fixed;
+  top:450px;
+  right:100px;
+}
+
+.prevBtn.ng-hide-remove {
+  -webkit-animation: fadeIn 2s;
+  -moz-animation: fadeIn 2s;
+  -o-animation: fadeIn 2s;
+  animation: fadeIn 2s;
+}
+
+.radio-label {
+  font-size:20px;
+}
+
+.radio-title {
+  font-size:1.7em;
+  font-weight: 300;
+}
+
+.radio-group {
+  margin-top:40px;
+}
+
+md-radio-button .md-container, 
+md-radio-button .md-off, 
+md-radio-button .md-on {
+  width:30px;
+  height:30px;
+  margin-left:11px;
+}
+
+md-radio-group:not([disabled]) .md-primary .md-off {
+  border:3px solid #666;
+}
+
+md-radio-button .md-label {
+  padding-left:10px;
+  font-size:24px;
+}
