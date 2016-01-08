@@ -2,7 +2,7 @@
 
     <div class="row">
     	<div class="col-sm-12">
-    		  <uib-progressbar class="prog" max="6" value="barValue" type="info"></uib-progressbar>
+    		  <uib-progressbar class="prog" max="7" value="barValue" type="info"></uib-progressbar>
       </div>
     </div>
 
@@ -41,7 +41,7 @@
 
           </div> <!-- end of initQuestions container -->
 
-          <div class="whiteboardquestions" ng-show="whiteboardQs" ng-repeat="question in whiteboardquestions" ng-class="{ active : whiteIndex == $index, inactive: whiteIndex !== $index }">
+          <div class="whiteboardquestions" ng-show="whiteboardQs" ng-repeat="question in whiteboardquestions.questions" ng-class="{ active : whiteIndex == $index, inactive: whiteIndex !== $index }">
             
             <div class="font-size-24">
               {{question.q}}

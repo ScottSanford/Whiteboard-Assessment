@@ -1,10 +1,13 @@
 angular.module('assessmentApp')
 
-.controller('EmailFormCtrl', function($scope, $location){
+.controller('EmailFormCtrl', function($scope, $location, localStorageService){
 
-	$scope.currentIndex = 6;
+	$scope.currentIndex = 5;
 	$scope.barValue = 6;
-	$scope.totalNumQuestions = 7;
+	$scope.totalNumQuestions = 6;
+
+	var finalScore = localStorageService.get('score');
+	console.log(finalScore);
 
 	$scope.submitForm = function() {
 		console.log('submit form success!');

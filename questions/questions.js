@@ -43,10 +43,16 @@ angular.module('assessmentApp')
 				$scope.whiteboardQs = true;
 			  
 				var finalScore = Util.add(Questions[0].score, Questions[1].score, Questions[2].score);
+				localStorageService.set('score', finalScore);
 				$scope.whiteboardquestions = Util.selectCategory(finalScore);
 				
 			}
 		} else {
+
+			if ($scope.whiteIndex == 2) {
+				$location.url('/email-form');
+			}
+			
 			$scope.whiteIndex++
 		}
 

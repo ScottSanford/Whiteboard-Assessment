@@ -1,7 +1,10 @@
 angular.module('assessmentApp')
 
-.controller('ResultsCtrl', function($scope){
+.controller('ResultsCtrl', function($scope, localStorageService, Util){
 
-  console.log('ResultsCtrl controller connected');
+  	var finalScore = localStorageService.get('score');
+	console.log(finalScore);
+
+	$scope.text = Util.selectCategory(finalScore);
 
 });

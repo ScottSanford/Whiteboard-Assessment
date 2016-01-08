@@ -18,7 +18,7 @@ angular.module("assessmentApp", [
                     templateUrl: 'questions/questions.html',
                     controller: 'QuestionsCtrl'
                 })  
-                .when('/emailForm', {
+                .when('/email-form', {
                     templateUrl: 'email-form/email-form.html', 
                     controller: 'EmailFormCtrl'
                 })              
