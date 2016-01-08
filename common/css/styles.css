@@ -1,41 +1,104 @@
+/*==================================================================
+
+                         Global Styles
+
+===================================================================*/
 .container {
 
 }
 
+.padding-table {
+  padding:5px 0 5px 15px;
+}
+
+.margin-top-5 {
+  margin-top:5px;
+}
+
+.margin-top-15 {
+  margin-top:15px;
+}
+
+.margin-top-25 {
+  margin-top:25px;
+}
+
+.margin-left-25 {
+  margin-left:25px;
+}
+
+.margin-left-50 {
+  margin-left:50px;
+}
+
+.padding-left-50 {
+  padding-left:50px;
+}
+
+.font-size-20 {
+  font-size:20px;
+}
+
+.font-size-24 {
+  font-size:24px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.buttons {
+  background-color:#AD514C;
+  color:#fff;
+  font-family: Helvetica;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 18px
+}
+
+.buttons:hover {
+  background-color:#F58C89;
+  color:#fff;
+}
+
+/*==================================================================
+
+                        Start Page Styles
+
+===================================================================*/
+
+/*==================================================================
+
+                      Init Questions Styles
+
+===================================================================*/
 .prog {
-  height:30px;
-  border-radius: 10px;
-  border: 4px solid #465568;
+  height:15px;
+  border-radius: 3px;
+  background-color:#e5e5e5;
 }
 
 .progress-bar-info {
-  background-color:#465568;
+  background-color: #AD514C;
 }
 
-.start-question {
-  margin-top:50px;
-  font-size: 2.5em;
-  font-weight: 300;
+.table-header-top {
+  min-height:20px;
+  border-bottom:2px solid #A0BF3B;
+  color:#000;
 }
 
-.general-btn {
-  margin-top:50px;
-  font-size:2em;
-  color:#fff;
-  background-color:#9fbe3c;
-  border:none;
+.table-header-bottom {
+  min-height:20px;
+  border-top:2px solid #A0BF3B;
+  color:#000;
 }
 
-.btn-primary:hover {
-  border-color: none;
-}
+/*==================================================================
 
-.general-btn:active, 
-.general-btn:hover, 
-.general-btn:visited {
-  background-color:#8AA534;
-}
+                  Whiteboard Questions Styles
 
+===================================================================*/
 .middle.ng-enter {
   -webkit-animation: zoomIn .75s;
   -moz-animation: zoomIn .75s;
@@ -47,22 +110,16 @@
   display: block;
 }
 
-.active {
+.fadeInDown {
   display: block;
-  -webkit-animation: bounceInRight 2s;
-  -moz-animation: bounceInRight 2s;
-  -o-animation: bounceInRight 2s;
-  animation: bounceInRight 2s;
+  -webkit-animation: fadeInDown .75s;
+  -moz-animation: fadeInDown .75s;
+  -o-animation: fadeInDown .75s;
+  animation: fadeInDown .75s;
 }
 
 .inactive {
   display: none;
-}
-
-.actionBtns {
-  position: fixed;
-  top:450px;
-  right:100px;
 }
 
 .prevBtn.ng-hide-remove {
@@ -81,23 +138,38 @@
   font-weight: 300;
 }
 
-.radio-group {
-  margin-top:40px;
-}
-
 md-radio-button .md-container, 
 md-radio-button .md-off, 
 md-radio-button .md-on {
-  width:30px;
-  height:30px;
-  margin-left:11px;
+  width:25px;
+  height:25px;
 }
+
+md-radio-group:not([disabled]) .md-primary.md-checked .md-off {
+  border-color:#3E4B83;
+}  
 
 md-radio-group:not([disabled]) .md-primary .md-off {
-  border:3px solid #666;
+  border:2px solid #bcbec0;
 }
 
-md-radio-button .md-label {
-  padding-left:10px;
+md-radio-group:not([disabled]) .md-primary .md-on {
+  border:2px solid #3E4B83;
+  background-color:#3E4B83;
+}
+
+/*==================================================================
+
+                            Email Form 
+
+===================================================================*/
+
+.form-instructions {
   font-size:24px;
+  margin-top:15px;
+}
+
+.submit-btn {
+  background-color:#AD514C;
+  color:#fff;
 }

@@ -1,0 +1,54 @@
+<h4>Your Progress {{ (currentIndex/totalNumQuestions) * 100 | number: 0}}%:</h4>
+<div class="row">
+	<div class="col-sm-12">
+		<uib-progressbar 
+			class="active prog" 
+			max="7" 
+			value="barValue" 
+			type="info">
+		</uib-progressbar>
+	</div>
+</div>
+
+<div class="alert alert-success" role="alert">Congratulations, you are almost done!</div>
+
+<div class="form-instructions text-center">
+To find out your results, please enter your name and email address.
+</div>
+
+<form name="resultsForm" ng-submit="submitForm()" novalidate>
+
+  <div class="row">
+
+	<div class="col-sm-6 form-group">
+	  <label for="firstName">First Name</label>
+	  <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
+	
+	  <div ng-if="resultsForm.$submitted" ng-messages="resultsForm.firstName.$error">
+	    <div ng-message="required">First name is required</div>
+      </div>
+	</div>
+
+	<div class="col-sm-6 form-group">
+	  <label for="lastName">Last Name</label>
+	  <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+	</div>
+
+  </div>  
+
+  </div>
+
+  <div class="form-group">
+    <label for="userEmail">Email address</label>
+    <input type="email" class="form-control" name="userEmail" placeholder="Email" required>
+  </div>
+
+  <div ng-if="resultsForm.userEmail.$touched" ng-messages="resultsForm.userEmail.$error">
+    <div ng-message="required">Email is required</div>
+  </div>
+
+  <div class="actionBtns">
+    <button type="button" class="btn btn-lg" ng-click="prev()">Previous</button>
+    <button type="submit" class="btn btn-lg submit-btn">Submit</button>
+  </div>
+</form>

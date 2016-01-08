@@ -3,7 +3,8 @@ angular.module("assessmentApp", [
         'ngAnimate', 
         'ui.bootstrap', 
         'ngMaterial', 
-        'LocalStorageModule'
+        'LocalStorageModule', 
+        'ngMessages'
         ])
 
         .config(function ($routeProvider, $compileProvider) { 
@@ -13,13 +14,17 @@ angular.module("assessmentApp", [
                     templateUrl: 'intro/intro.html', 
                     controller: 'IntroCtrl'
                 })
-                .when('/middle', {
-                    templateUrl: 'middle/middle.html',
-                    controller: 'MiddleCtrl'
-                })                
-                .when('/end', {
-                    templateUrl: 'end/end.html',
-                    controller: 'EndCtrl'
+                .when('/questions', {
+                    templateUrl: 'questions/questions.html',
+                    controller: 'QuestionsCtrl'
+                })  
+                .when('/emailForm', {
+                    templateUrl: 'email-form/email-form.html', 
+                    controller: 'EmailFormCtrl'
+                })              
+                .when('/results', {
+                    templateUrl: 'results/results.html',
+                    controller: 'ResultsCtrl'
                 })
                 .otherwise({
                     redirectTo: '/'

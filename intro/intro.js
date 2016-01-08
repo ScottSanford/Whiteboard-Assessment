@@ -1,11 +1,11 @@
 angular.module('assessmentApp')
 
-.controller('IntroCtrl', ['$scope', 'Questions', '$location', function($scope, Questions, $location){
+.controller('IntroCtrl', function($scope, $location){
 
 	$scope.startQuestion = "Is your company's value getting lost in sales meetings?";
 
-	$scope.nextPage = function() {
-		$location.url('/middle');
+	$scope.startAsssessment = function() {
+		$location.url('/questions');
 	}
 
-}]);
+});
