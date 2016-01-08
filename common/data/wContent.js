@@ -4,11 +4,11 @@ var whiteboard = [
   	{
 		"title": "Transform", 
 		"id": "transform", 
-		"questions": {
-			"qOne": "Do you feel confident in how your company creates content?",   			
-			"qTwo": "Does your company use different types of content (PPT, video, PDF, testimonials)?",   			
-			"qThree": "Do your sales users effectively combine different sets and types of content in in-person meetings?"
-		}, 
+		"questions": [
+			{"q": "Do you feel confident in how your company creates content?"}, 
+			{"q": "Does your company use different types of content (PPT, video, PDF, testimonials)?"},   			
+			{"q": "Do your sales users effectively combine different sets and types of content in in-person meetings?"}
+		], 
 		"description": {
 			"paragraph": [
 				{"para_id": "From your answers, it sounds like you might face the same challenge as top companies across the globe: the challenge of transforming the thoughts and ideas that represent their company and products into words and images. That means you'll have to use a mix of different assets to show your company's full value for prospects (e.g., sell sheets, PowerPoints, videos and brochures)."}, 
@@ -21,11 +21,11 @@ var whiteboard = [
   	{
   		"title": "Relevance", 
   		"id": "relevance", 
-  		"questions": {
-  			"qOne": "Are you confident that your sales users are using the newest and most up-to-date assets?",   			
-  			"qTwo": "Has your sales team ever used the wrong content in front of a customer?",   			
-  			"qThree": "Is your team spending more than 3 hours a week making sure they have the right content?"
-  		}, 
+  		"questions": [
+  			{"q": "Are you confident that your sales users are using the newest and most up-to-date assets?"},   			
+  			{"q": "Has your sales team ever used the wrong content in front of a customer?"},   			
+  			{"q": "Is your team spending more than 3 hours a week making sure they have the right content?"}
+  		], 
   		"description": {
 			"paragraph": [
 				{"para_id": "Companies like yours equip their salespeople with a lot of great content. The challenge that even Fortune-ranked companies face is finding the most relevant content for each of their prospects."}, 
@@ -38,11 +38,11 @@ var whiteboard = [
   	{
   		"title": "Discovery", 
   		"id": "discovery", 
-  		"questions": {
-  			"qOne": "Is it easy for the sales user to know the most compelling content for a wide variety of customer needs?",   			
-  			"qTwo": "Do your customers feel like they're having a dynamic and customized conversation when a sales reps meets with them?",   			
-  			"qThree": "Are the marketing team and content creators struggling to create a cohesive message to present to a user?"
-  		}, 
+  		"questions": [
+  			{"q": "Is it easy for the sales user to know the most compelling content for a wide variety of customer needs?"},   			
+  			{"q": "Do your customers feel like they're having a dynamic and customized conversation when a sales reps meets with them?"},   			
+  			{"q": "Are the marketing team and content creators struggling to create a cohesive message to present to a user?"}
+  		], 
   		"description": {
 			"paragraph": [
 				{"para_id": "The challenges your company might face is a set of very unique customers with potentially very different needs. With many customer needs and a potentially overwhelming amount of sales collateral, your customers and your sales reps might find it difficult to discover the right content at that moment."}, 
@@ -55,11 +55,11 @@ var whiteboard = [
   	{
   		"title": "Execution", 
   		"id": "execution", 
-  		"questions": {
-  			"qOne": "Are new sales reps overwhelmed with getting up to speed quickly on all of your offerings?",   			
-  			"qTwo": "Are your top sales reps asking for new (or better) tools for them to sell effectively?",   			
-  			"qThree": "Are you confident that every sales rep is sharing a consistent message to your customer and prospect base?"
-  		}, 
+  		"questions": [
+  			{"q": "Are new sales reps overwhelmed with getting up to speed quickly on all of your offerings?"},   			
+  			{"q": "Are your top sales reps asking for new (or better) tools for them to sell effectively?"},   			
+  			{"q": "Are you confident that every sales rep is sharing a consistent message to your customer and prospect base?"}
+  		], 
   		"description": {
 			"paragraph": [
 				{"para_id": "From your answers, it sounds like your company has faced the challenge of delivering your message to your customers. At your level, consider now the tools you need to deliver a consistent message that communicates your company's full value."}, 

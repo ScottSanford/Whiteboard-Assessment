@@ -2,7 +2,7 @@
 
     <div class="row">
     	<div class="col-sm-12">
-    		  <uib-progressbar class="prog" max="7" value="barValue" type="info"></uib-progressbar>
+    		  <uib-progressbar class="prog" max="6" value="barValue" type="info"></uib-progressbar>
       </div>
     </div>
 
@@ -13,7 +13,7 @@
 
       <form name="scoreForm" novalidate>
 
-          <div class="initquestions" ng-repeat="init in initQs" ng-class="{ active : currentIndex == $index, inactive: currentIndex !== $index }"> <!-- ngShow on container -->
+          <div class="initquestions" ng-repeat="init in initQs" ng-class="{ active : currentIndex == $index, inactive: currentIndex !== $index }" ng-show="initQuestions"> <!-- ngShow on container -->
             
               <div class="font-size-24">  	
                 {{init.question}}
@@ -25,7 +25,7 @@
 
               <div class="margin-top-15 padding-left-50">
                   <div class="radio-container">           
-                    <md-radio-group name="score" ng-model="data.group">               
+                    <md-radio-group name="score" ng-model="data.group1">               
                       <md-radio-button class="md-primary font-size-20" ng-repeat="radio in radios" aria-label="{{radio.label}}" ng-value="radio.value" required>{{radio.label}}</md-radio-button>              
                     </md-radio-group>
                   </div>
@@ -41,14 +41,18 @@
 
           </div> <!-- end of initQuestions container -->
 
-          <div class="whiteboardquestions" ng-show="whiteboardQs">
+          <div class="whiteboardquestions" ng-show="whiteboardQs" ng-repeat="question in whiteboardquestions" ng-class="{ active : whiteIndex == $index, inactive: whiteIndex !== $index }">
+            
+            <div class="font-size-24">
+              {{question.q}}
+            </div>
 
             <div class="margin-top-15 table-header-bottom font-size-20"></div>
 
               <div class="margin-top-5 padding-left-50"> 
 
                   <div class="radio-container">           
-                    <md-radio-group name="score" ng-model="data.group">               
+                    <md-radio-group name="score" ng-model="data.group2">               
                       <md-radio-button class="md-primary font-size-20" value="Yes">Yes</md-radio-button>              
                       <md-radio-button class="md-primary font-size-20" value="No">No</md-radio-button>              
                     </md-radio-group>
@@ -72,7 +76,5 @@
 
       </form>
       
-    
-
 
 </div>

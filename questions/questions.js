@@ -1,44 +1,53 @@
 angular.module('assessmentApp')
 
 .controller('QuestionsCtrl', function(
-		$scope, $location, $routeParams,
-		Questions, Whiteboard, radioGroup, 
-		localStorageService) {
+	$scope, $location, $routeParams,
+	Questions, radioGroup, Whiteboard, Util,
+	localStorageService) {
 
 	// Progress Bar
 	$scope.barValue = 0;
 	$scope.totalNumQuestions = 6;
 	$scope.currentIndex = 0;
+	$scope.whiteIndex = 0;
 
 	$scope.initQs = Questions;
 	$scope.radios = radioGroup;
+	$scope.initQuestions = true;
+	$scope.whiteboardQs = false;
 
 	$scope.showPrev = false;
-	$scope.data = {group: null}
-	
-	function add (a, b, c) {
-    	return a + b + c;
+	$scope.data = {
+		group1: null, 
+		group2: null
 	}
-
+	
 	$scope.next = function() {
 
-		var i = $scope.currentIndex;
-		var score = 'score';
+		if ($scope.initQuestions) {
+			
+			var i = $scope.currentIndex;
+			var score = 'score';
 
-		Questions[i][score] = $scope.data.group;
+			Questions[i][score] = $scope.data.group1;
+			console.log("Questions:: ", Questions);
 
-		console.log(Questions);
+			// show Previous Button
+			if (i > 0) {
+				$scope.showPrev = true;
+			}
 
-		// show Previous Button
-		if (i > 0) {
-			$scope.showPrev = true;
-		}
+			if (i === 2) {
 
-		if (i === 2) {
-		  
-		  var finalScore = add(Questions[0].score, Questions[1].score, Questions[2].score);
-		  console.log("finalScore", finalScore);
-
+				$scope.initQuestions = false;
+				$scope.whiteboardQs = true;
+			  
+				var finalScore = Util.add(Questions[0].score, Questions[1].score, Questions[2].score);
+				$scope.whiteboardquestions = Util.selectCategory(finalScore);
+				
+			}
+		} else {
+			$scope.whiteIndex++
 		}
 
 		$scope.barValue++;
