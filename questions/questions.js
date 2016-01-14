@@ -76,32 +76,46 @@ angular.module('assessmentApp')
 			$scope.whiteIndex++
 			$scope.data.group2 = null;
 		}
-		console.log('barValue Before :: ', $scope.barValue);
+		
 		$scope.barValue++;
-		console.log('barValue AFter :: ', $scope.barValue);
 		$scope.currentIndex++;
 	}
 
 	$scope.prev = function() {	
-		console.log('barValue Before :: ', $scope.barValue);
 
-		var cIndex = $scope.currentIndex;
-		$scope.barValue--;
-		$scope.currentIndex--;
-		var wIndex = $scoope.whiteIndex;
-
-		if (cIndex <= 1) {
+		// hide Previous button when first question is shown
+		if ($scope.currentIndex <= 1) {
 			$scope.showPrev = false;
 		}
 
+		if ($scope.initQuestions) {
+			$scope.currentIndex--;
+			$scope.barValue--;
+			return;
+		}
 
-		if (!$scope.initQuestions) {
+		// if user goes back to Init Qs in quesitons 
+	    // or if user goes back to Init Qs from Email List
+		if( (!$scope.initQuestions && $routeParams.index == undefined) ||
+			($routeParams.index === "2" && $scope.whiteIndex == 0)
+		  ){
 			$scope.whiteboardQs = false;
 			$scope.initQuestions = true;
 
-			cIndex = 2;
+			$scope.currentIndex = 2;
 			$scope.barValue = 2;
+			return;
 		}
+
+		// if coming from Email Form
+		if ($routeParams.index === "2") {
+			$scope.whiteIndex--;
+			$scope.showPrev = true;
+			$scope.barValue--;
+			$scope.currentIndex--;
+			return;
+		}
+
 
 	};	
 

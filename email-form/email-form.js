@@ -7,16 +7,17 @@ angular.module('assessmentApp')
 	$scope.totalNumQuestions = 6;
 
 	var finalScore = localStorageService.get('score');
-	console.log(finalScore);
 
 	$scope.submitForm = function() {
 		if ($scope.resultsForm.$valid) {
 			console.log($scope.resultsForm);
 		}
+		// send results to HubSpot API 
+
+
 		// take user to Results page 
 		$location.url('/results');
 
-		// send results to HubSpot API 
 	}
 
 	$scope.prev = function() {
