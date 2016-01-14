@@ -162,6 +162,10 @@ md-radio-group:not([disabled]) .md-primary .md-on {
   background-color:#3E4B83;
 }
 
+.required-message {
+  color:#ff0000;
+}
+
 /*==================================================================
 
                             Email Form 

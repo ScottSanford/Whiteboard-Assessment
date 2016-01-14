@@ -10,71 +10,67 @@
 
     <div class="question-container">
 
-
-      <form name="scoreForm" novalidate>
-
-          <div class="initquestions" ng-repeat="init in initQs" ng-class="{ active : currentIndex == $index, inactive: currentIndex !== $index }" ng-show="initQuestions"> <!-- ngShow on container -->
+        <div class="initquestions" ng-repeat="init in initQs" ng-class="{ active : currentIndex == $index, inactive: currentIndex !== $index }" ng-show="initQuestions"> <!-- ngShow on container -->
+          
+            <div class="font-size-24">  	
+              {{init.question}}
+            </div>
             
-              <div class="font-size-24">  	
-                {{init.question}}
-              </div>
-              
-              <div class="margin-top-15 table-header-bottom font-size-20">
-                <div class="padding-table">Very Hard</div>
-              </div>
-
-              <div class="margin-top-15 padding-left-50">
-                  <div class="radio-container">           
-                    <md-radio-group name="score" ng-model="data.group1">               
-                      <md-radio-button class="md-primary font-size-20" ng-repeat="radio in radios" aria-label="{{radio.label}}" ng-value="radio.value" required>{{radio.label}}</md-radio-button>              
-                    </md-radio-group>
-                  </div>
-
-                  <div ng-if="scoreForm.$submitted" ng-messages="scoreForm.score.$error" role="alert">
-                    <div ng-message="required">Please choose a number.</div>
-                  </div>     
-              </div>
-
-              <div class="margin-top-15 table-header-top font-size-20">
-                <div class="padding-table">Very Easy</div>
-              </div>
-
-          </div> <!-- end of initQuestions container -->
-
-          <div class="whiteboardquestions" ng-show="whiteboardQs" ng-repeat="question in whiteboardquestions.questions" ng-class="{ active : whiteIndex == $index, inactive: whiteIndex !== $index }">
-            
-            <div class="font-size-24">
-              {{question.q}}
+            <div class="margin-top-15 table-header-bottom font-size-20">
+              <div class="padding-table">Very Hard</div>
             </div>
 
-            <div class="margin-top-15 table-header-bottom font-size-20"></div>
+            <div class="margin-top-15 padding-left-50">
+                <div class="radio-container">           
+                  <md-radio-group ng-model="data.group1">               
+                    <md-radio-button name="score" class="md-primary font-size-20" ng-repeat="radio in radios" aria-label="{{radio.label}}" ng-value="radio.value" required>{{radio.label}}</md-radio-button>              
+                  </md-radio-group>
+                </div>
+            </div>
 
-              <div class="margin-top-5 padding-left-50"> 
+            <div class="margin-top-15 table-header-top font-size-20">
+              <div class="padding-table">Very Easy</div>
+            </div>
 
-                  <div class="radio-container">           
-                    <md-radio-group name="score" ng-model="data.group2">               
-                      <md-radio-button class="md-primary font-size-20" value="Yes">Yes</md-radio-button>              
-                      <md-radio-button class="md-primary font-size-20" value="No">No</md-radio-button>              
-                    </md-radio-group>
-                  </div>
+        </div> <!-- end of initQuestions container -->
+        <div ng-show="rmInit" class="margin-top-15 font-size-20 italic required-message">
+          Please choose a number!
+        </div>     
 
-                  <div ng-if="scoreForm.$submitted" ng-messages="scoreForm.score.$error" role="alert">
-                    <div ng-message="required">Please choose a number.</div>
-                  </div>     
-
-              </div>
-
-            <div class="margin-top-15 table-header-top font-size-20"></div>
-
-          </div> <!-- end of initQuestions container -->
-
-
-          <div class="margin-top-15 pull-right">
-            <button type="button" class="btn buttons prevBtn" ng-show="showPrev" ng-click="prev()">Previous</button>
-            <button type="submit" class="btn buttons" ng-click="next()">Next</button>              
+        <div class="whiteboardquestions" ng-show="whiteboardQs" ng-repeat="question in whiteboardquestions.questions" ng-class="{ active : whiteIndex == $index, inactive: whiteIndex !== $index }">
+          
+          <div class="font-size-24">
+            {{question.q}}
           </div>
 
-      </form>
-      
+          <div class="margin-top-15 table-header-bottom font-size-20"></div>
+
+            <div class="margin-top-5 padding-left-50"> 
+
+                <div class="radio-container">           
+                  <md-radio-group name="score" ng-model="data.group2">               
+                    <md-radio-button class="md-primary font-size-20" value="Yes">Yes</md-radio-button>              
+                    <md-radio-button class="md-primary font-size-20" value="No">No</md-radio-button>              
+                  </md-radio-group>
+                </div>
+
+                <div ng-if="scoreForm.$submitted" ng-messages="scoreForm.score.$error" role="alert">
+                  <div ng-message="required">Please choose a number.</div>
+                </div>     
+
+            </div>
+
+          <div class="margin-top-15 table-header-top font-size-20"></div>
+
+        </div> <!-- end of initQuestions container -->
+        <div ng-show="rmWhiteboard" class="margin-top-15 font-size-20 italic required-message">
+          Please choose yes or no!
+        </div> 
+
+
+        <div class="margin-top-15 pull-right">
+          <button type="button" class="btn buttons prevBtn" ng-show="showPrev" ng-click="prev()">Previous</button>
+          <button type="submit" class="btn buttons" ng-click="next()">Next</button>              
+        </div>  
 
 </div>

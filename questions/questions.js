@@ -6,15 +6,17 @@ angular.module('assessmentApp')
 	localStorageService) {
 
 	// Progress Bar
-	$scope.barValue = 0;
+	$scope.barValue          = 0;
 	$scope.totalNumQuestions = 6;
-	$scope.currentIndex = 0;
-	$scope.whiteIndex = 0;
+	$scope.currentIndex      = 0;
+	$scope.whiteIndex        = 0;
 
-	$scope.initQs = Questions;
-	$scope.radios = radioGroup;
-	$scope.initQuestions = true;
-	$scope.whiteboardQs = false;
+	$scope.initQs            = Questions;
+	$scope.radios            = radioGroup;
+	$scope.initQuestions     = true;
+	$scope.whiteboardQs      = false;
+	$scope.rmInit            = false;
+	$scope.rmWhiteboard      = false;
 
 
 	$scope.showPrev = false;
@@ -42,6 +44,16 @@ angular.module('assessmentApp')
 	
 	$scope.next = function() {
 
+		if ($scope.initQuestions && $scope.data.group1 === null) {
+			$scope.rmInit = true;
+			return;
+		}		
+
+		if ($scope.whiteboardQs && $scope.data.group2 === null) {
+			$scope.rmWhiteboard = true;
+			return;
+		}
+
 		if ($scope.initQuestions) {
 			
 			var i = $scope.currentIndex;
@@ -66,6 +78,9 @@ angular.module('assessmentApp')
 			}
 
 			$scope.data.group1 = null;
+			$scope.rmInit = false;
+			$scope.barValue++;
+			$scope.currentIndex++;
 
 		} else {
 
@@ -75,10 +90,11 @@ angular.module('assessmentApp')
 			
 			$scope.whiteIndex++
 			$scope.data.group2 = null;
+			$scope.rmWhiteboard = false;
+			$scope.barValue++;
+			$scope.currentIndex++;
 		}
-		
-		$scope.barValue++;
-		$scope.currentIndex++;
+	
 	}
 
 	$scope.prev = function() {	
@@ -91,21 +107,33 @@ angular.module('assessmentApp')
 		if ($scope.initQuestions) {
 			$scope.currentIndex--;
 			$scope.barValue--;
+			$scope.rmInit = false;
 			return;
 		}
 
-		// if user goes back to Init Qs in quesitons 
-	    // or if user goes back to Init Qs from Email List
-		if( (!$scope.initQuestions && $routeParams.index == undefined) ||
-			($routeParams.index === "2" && $scope.whiteIndex == 0)
-		  ){
+		if($scope.whiteIndex == 0 && $routeParams.index == undefined) {
+			
 			$scope.whiteboardQs = false;
 			$scope.initQuestions = true;
 
-			$scope.currentIndex = 2;
-			$scope.barValue = 2;
+			$scope.currentIndex--;
+			$scope.barValue--;
+
+			$scope.rmInit = false;
 			return;
+
+		} else if ($scope.whiteIndex >= 0 && $routeParams.index == undefined) {
+
+			$scope.whiteIndex--;
+			$scope.currentIndex--;
+			$scope.barValue--;
+
+			$scope.rmWhiteboard = false;
+			return;
+
 		}
+
+		if ($routeParams.index === "2" && $scope.whiteIndex == 0)
 
 		// if coming from Email Form
 		if ($routeParams.index === "2") {
@@ -113,6 +141,8 @@ angular.module('assessmentApp')
 			$scope.showPrev = true;
 			$scope.barValue--;
 			$scope.currentIndex--;
+			$scope.rmInit = false;
+			$scope.rmWhiteboard = false;
 			return;
 		}
 
