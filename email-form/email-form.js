@@ -19,5 +19,9 @@ angular.module('assessmentApp')
 		// send results to HubSpot API 
 	}
 
+	$scope.prev = function() {
+		$location.url('/questions?index=2');
+	}
+
 
 });

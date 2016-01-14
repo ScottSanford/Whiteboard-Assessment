@@ -16,10 +16,28 @@ angular.module('assessmentApp')
 	$scope.initQuestions = true;
 	$scope.whiteboardQs = false;
 
+
 	$scope.showPrev = false;
 	$scope.data = {
 		group1: null, 
 		group2: null
+	}
+
+	// if coming back from Email Page
+	if ($routeParams.index === "2") {
+
+		$scope.initQuestions = false;
+		$scope.whiteboardQs  = true;
+
+		var finalScore = Util.add(Questions[0].score, Questions[1].score, Questions[2].score);
+		localStorageService.set('score', finalScore);
+		$scope.whiteboardquestions = Util.selectCategory(finalScore);
+
+		$scope.currentIndex = 5;
+		$scope.barValue = 5;
+		$scope.whiteIndex = 2;
+		$scope.showPrev = true;
+
 	}
 	
 	$scope.next = function() {
@@ -70,6 +88,7 @@ angular.module('assessmentApp')
 		var cIndex = $scope.currentIndex;
 		$scope.barValue--;
 		$scope.currentIndex--;
+		var wIndex = $scoope.whiteIndex;
 
 		if (cIndex <= 1) {
 			$scope.showPrev = false;
@@ -84,7 +103,6 @@ angular.module('assessmentApp')
 			$scope.barValue = 2;
 		}
 
-		console.log('barValue AFter :: ', $scope.barValue);
 	};	
 
 
