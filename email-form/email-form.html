@@ -16,17 +16,15 @@
 To find out your results, please enter your name and email address.
 </div>
 
-<form role="form" name="resultsForm" ng-submit="submitForm()" novalidate>
+<form name="resultsForm" ng-submit="submitForm()" novalidate>
 
   <div class="row">
 
 	<div class="col-sm-6 form-group">
-	  <label for="firstName">First Name</label>
-	  <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
-	
-	  <p ng-show="resultsForm.firstName.$invalid && !resultsForm.firstName.$pristine" class="help-block">First name is required.</p>
+	  <label>First Name</label>
+	  <input type="text" class="form-control" name="firstName" ng-model="firstName" placeholder="First Name" required>
+	  <p ng-show="firstNameReq" class="font-size-14 italic required-message">First name is required.</p>
 	</div>
-
 	<div class="col-sm-6 form-group">
 	  <label for="lastName">Last Name</label>
 	  <input type="text" class="form-control" name="lastName" placeholder="Last Name">
@@ -38,11 +36,8 @@ To find out your results, please enter your name and email address.
 
   <div class="form-group">
     <label for="userEmail">Email address</label>
-    <input type="email" class="form-control" name="userEmail" placeholder="Email" required>
-  </div>
-
-  <div ng-if="resultsForm.$submitted" ng-messages="resultsForm.userEmail.$error">
-    <div ng-message="required">Email is required</div>
+    <input type="email" class="form-control" name="userEmail" ng-model="userEmail" placeholder="Email" required>
+    <p ng-show="emailReq" class="font-size-14 italic required-message">Your email is required.</p>
   </div>
 
   <div class="actionBtns">
