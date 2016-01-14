@@ -10,8 +10,9 @@ angular.module('assessmentApp')
 	console.log(finalScore);
 
 	$scope.submitForm = function() {
-		console.log('submit form success!');
-
+		if ($scope.resultsForm.$valid) {
+			console.log($scope.resultsForm);
+		}
 		// take user to Results page 
 		$location.url('/results');
 

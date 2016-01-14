@@ -23,6 +23,10 @@
   margin-top:25px;
 }
 
+.margin-top-50 {
+  margin-top:50px;
+}
+
 .margin-left-25 {
   margin-left:25px;
 }
@@ -163,7 +167,6 @@ md-radio-group:not([disabled]) .md-primary .md-on {
                             Email Form 
 
 ===================================================================*/
-
 .form-instructions {
   font-size:24px;
   margin-top:15px;
@@ -172,4 +175,18 @@ md-radio-group:not([disabled]) .md-primary .md-on {
 .submit-btn {
   background-color:#AD514C;
   color:#fff;
+}
+
+/*==================================================================
+
+                            Results
+
+===================================================================*/
+.ebook {
+  width:300px;
+  height:auto;
+}
+
+.download-btn {
+  width:60%;
 }

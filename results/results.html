@@ -1,1 +1,38 @@
-<div class="result-text" ng-repeat="t in text.description">{{t.p}}</div>
+<div ng-show="pageOne">
+	<div class="row">
+		<img ng-src="{{whiteboardImg}}" class="img-responsive margin-top-25" alt="Whiteboard Image">
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6 font-size-20" ng-repeat="t in text.description | limitTo:2">{{t.p}}</div>
+	</div>
+	<button type="submit" class="btn buttons pull-right margin-top-15" ng-click="nextPage()">Next Page</button>  
+</div>
+
+<div ng-show="pageTwo">
+
+	<div class="row margin-top-25">
+		<div class="col-sm-6" ng-show="showVideo">
+			<video width="100%" height="auto" controls>
+			  <source src="{{videoUrl}}" type="video/mp4">
+			  <source src="{{videoUrl}}" type="video/mov">
+			</video>
+		</div>		
+		<div class="giveaway col-sm-6" ng-show="showEbook">
+			<a ng-href="{{eBookUrl}}"><img class="img-responsive ebook margin-top-25" src="common/images/ebook.png"></a>
+		</div>
+		<div class="col-sm-6">
+			<img src="common/images/saleskit-demo.png" class="img-responsive center-block">
+			<a class="btn buttons center-block download-btn" href="http://info.mediafly.com/mediafly-my-saleskit-demo">Download Demo</a>
+		</div>
+	</div>
+
+	<div class="row margin-top-50">
+		<p class="col-sm-6 font-size-20" ng-repeat="t in text.description | limitTo:-2">
+			{{t.p}}
+		</p>		
+	</div>
+
+	<button type="submit" class="btn buttons margin-top-15" ng-click="previousPage()">Previous Page</button>  
+
+</div>

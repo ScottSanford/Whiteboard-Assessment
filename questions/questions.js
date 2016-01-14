@@ -30,10 +30,9 @@ angular.module('assessmentApp')
 			var score = 'score';
 
 			Questions[i][score] = $scope.data.group1;
-			console.log("Questions:: ", Questions);
 
 			// show Previous Button
-			if (i > 0) {
+			if (i >= 0) {
 				$scope.showPrev = true;
 			}
 
@@ -47,6 +46,9 @@ angular.module('assessmentApp')
 				$scope.whiteboardquestions = Util.selectCategory(finalScore);
 				
 			}
+
+			$scope.data.group1 = null;
+
 		} else {
 
 			if ($scope.whiteIndex == 2) {
@@ -54,24 +56,35 @@ angular.module('assessmentApp')
 			}
 			
 			$scope.whiteIndex++
+			$scope.data.group2 = null;
 		}
-
+		console.log('barValue Before :: ', $scope.barValue);
 		$scope.barValue++;
+		console.log('barValue AFter :: ', $scope.barValue);
 		$scope.currentIndex++;
 	}
 
 	$scope.prev = function() {	
+		console.log('barValue Before :: ', $scope.barValue);
 
 		var cIndex = $scope.currentIndex;
 		$scope.barValue--;
 		$scope.currentIndex--;
 
-		console.log("current index, ", cIndex);
-
-		if (cIndex === 0) {
+		if (cIndex <= 1) {
 			$scope.showPrev = false;
 		}
 
+
+		if (!$scope.initQuestions) {
+			$scope.whiteboardQs = false;
+			$scope.initQuestions = true;
+
+			cIndex = 2;
+			$scope.barValue = 2;
+		}
+
+		console.log('barValue AFter :: ', $scope.barValue);
 	};	
 
 

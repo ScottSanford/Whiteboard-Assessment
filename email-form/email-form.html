@@ -16,7 +16,7 @@
 To find out your results, please enter your name and email address.
 </div>
 
-<form name="resultsForm" ng-submit="submitForm()" novalidate>
+<form role="form" name="resultsForm" ng-submit="submitForm()" novalidate>
 
   <div class="row">
 
@@ -24,9 +24,7 @@ To find out your results, please enter your name and email address.
 	  <label for="firstName">First Name</label>
 	  <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
 	
-	  <div ng-if="resultsForm.$submitted" ng-messages="resultsForm.firstName.$error">
-	    <div ng-message="required">First name is required</div>
-      </div>
+	  <p ng-show="resultsForm.firstName.$invalid && !resultsForm.firstName.$pristine" class="help-block">First name is required.</p>
 	</div>
 
 	<div class="col-sm-6 form-group">
@@ -43,12 +41,13 @@ To find out your results, please enter your name and email address.
     <input type="email" class="form-control" name="userEmail" placeholder="Email" required>
   </div>
 
-  <div ng-if="resultsForm.userEmail.$touched" ng-messages="resultsForm.userEmail.$error">
+  <div ng-if="resultsForm.$submitted" ng-messages="resultsForm.userEmail.$error">
     <div ng-message="required">Email is required</div>
   </div>
 
   <div class="actionBtns">
-    <button type="button" class="btn btn-lg" ng-click="prev()">Previous</button>
-    <button type="submit" class="btn btn-lg submit-btn">Submit</button>
+    <input type="button" class="btn btn-lg" ng-click="prev()" value="Previous">
+    <input type="submit" class="btn btn-lg submit-btn" value="Submit">
   </div>
+
 </form>

@@ -3,7 +3,10 @@ angular.module('assessmentApp').factory('Whiteboard', function() {
 var whiteboard = [
   	{
 		"title": "Transform", 
-		"id": "transform", 
+		"id": "transform",
+    "image": "common/images/transformation.png", 
+    "video": "common/video/clone.mp4",
+    "pdf": "https://www.mediafly.com/wp-content/uploads/2015/12/Clutch-Report_ThermoFisher.pdf",
 		"questions": [
 			{"q": "Do you feel confident in how your company creates content?"}, 
 			{"q": "Does your company use different types of content (PPT, video, PDF, testimonials)?"},   			
@@ -18,7 +21,10 @@ var whiteboard = [
   	}, 
   	{
   		"title": "Relevance", 
-  		"id": "relevance", 
+  		"id": "relevance",
+      "image": "common/images/relevance.png",
+      "video": "common/video/clone.mp4",
+      "pdf": "https://www.mediafly.com/wp-content/uploads/2015/12/Clutch-Report_PepsiCo.pdf",
   		"questions": [
   			{"q": "Are you confident that your sales users are using the newest and most up-to-date assets?"},   			
   			{"q": "Has your sales team ever used the wrong content in front of a customer?"},   			
@@ -33,7 +39,9 @@ var whiteboard = [
   	}, 
   	{
   		"title": "Discovery", 
-  		"id": "discovery", 
+  		"id": "discovery",
+      "image": "common/images/discovery.png", 
+      "video": "common/video/interactive.mp4",
   		"questions": [
   			{"q": "Is it easy for the sales user to know the most compelling content for a wide variety of customer needs?"},   			
   			{"q": "Do your customers feel like they're having a dynamic and customized conversation when a sales reps meets with them?"},   			
@@ -48,7 +56,9 @@ var whiteboard = [
   	}, 
   	{
   		"title": "Execution", 
-  		"id": "execution", 
+  		"id": "execution",
+      "image": "common/images/execution.png", 
+      "ebook": "https://www.mediafly.com/wp-content/uploads/2015/10/Sales-Productivity-eBook.pdf",
   		"questions": [
   			{"q": "Are new sales reps overwhelmed with getting up to speed quickly on all of your offerings?"},   			
   			{"q": "Are your top sales reps asking for new (or better) tools for them to sell effectively?"},   			
