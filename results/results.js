@@ -38,8 +38,10 @@ angular.module('assessmentApp')
 		$scope.pageOne  = true;
 	}
 
-	HubSpot.getForms().then(function(data){
-		console.log(data);
-	})
+	HubSpot.submitFormData();
+
+  HubSpot.getFormData().then(function(data){
+    console.log('data == ', data);
+  })
 
 });
